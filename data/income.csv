@@ -1,0 +1,35 @@
+﻿;City;state; gross_salary ;net_salary
+;San Francisco;CA;234000;164000
+;Seattle;WA;213000;168000
+;New York City;NY;187000;140000
+;Portland;OR;174000;126000
+;Los Angeles;CA;170000;126000
+;San Diego;CA;170000;126000
+;Austin;TX;169000;137000
+;Boston;MA;160000;123000
+;Denver;CO;158000;122000
+;Sacramento;CA;149000;112000
+;"Washington DC";NW;148000;112000
+;Zurich;;178000;127000
+;London;;116000;79000
+;Dublin;;112000;68000
+;Copenhagen;;112000;70000
+;Amsterdam;;104000;62000
+;Luxembourg;;96000;55000
+;Geneva;;88000;66000
+;Cambridge;;87000;62000
+;Berlin;;87000;51000
+;Munich;;85000;50000
+;Oslo;;80000;55000
+;Stuttgart;;79000;47000
+;Tel Aviv;;159000;102000
+;Dubai;;94000;89000
+;Singapore;;90000;73000
+;Seoul;;83000;64000
+;Tokyo;;69000;51000
+;Vancouver;;123000;89000
+;Sydney;;112000;83000
+;Toronto;;110000;79000
+;Melbourne;;97000;73000
+;Calgary;;84000;62000
+;Wellington;;81000;62000
