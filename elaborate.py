@@ -1,38 +1,56 @@
 import pandas as pd;
 import clean_dataset as dataset;
 import matplotlib.pyplot as plt
+import numpy as np
 
 dataset_tot=dataset.dataset;
 
 #cost of living in New York city in dollar, 1 bedroom apartament outside city center numbeo
-
 cost_newyork=4000;
-print(dataset_tot.columns)
 
-dataset_tot["Savings"]=dataset_tot['net_salary'] -cost_newyork*12/100*dataset_tot['Cost of Living Plus Rent Index'];
+#------------------------------- create new columns ------------------------------
+
+#calculate yearly cost of living per city
+dataset_tot['cost_living_per_year']=cost_newyork*dataset_tot['Cost of Living Plus Rent Index']*12/100
+
+#calculate savings per city
+dataset_tot["Savings"]=dataset_tot['net_salary'] -dataset_tot['cost_living_per_year'];
+
+#calculate taxes 
+dataset_tot['Taxes']=dataset_tot['gross_salary']-dataset_tot['net_salary']
+
+print(dataset_tot.columns)
+#-------------------------------- plot ---------------------------------------------
 
 # Sort the dataset by savings in descending order
 dataset_tot= dataset_tot.sort_values('Savings', ascending=True)
 
-# Create the horizontal bar chart
-plt.barh(dataset_tot['City'], dataset_tot['Savings'], color='steelblue')
+# Create a figure and axis
+fig, ax = plt.subplots()
 
-# Add labels and title
-plt.xlabel('Savings')
-plt.ylabel('City')
-plt.title('Savings by City')
+# Calculate the positions of the bars on the x-axis
+x = range(len(dataset_tot))
 
-# Add grid lines
-plt.grid(axis='x', linestyle='--', alpha=0.7)
+# Plotting the stacked bars
+ax.bar(x,dataset_tot['Savings'], color='purple', label='Savings')
+ax.bar(x, dataset_tot['Taxes'], color='red', label='Taxes',bottom=dataset_tot['Savings'])
+ax.bar(x, dataset_tot['cost_living_per_year'], color='green', label='Cost of living per year', bottom=dataset_tot['Savings']+dataset_tot['Taxes'])
 
-# Customize tick labels
-plt.xticks(fontsize=10)
-plt.yticks(fontsize=10)
+# Set the x-axis tick positions and labels
+ax.set_xticks(x)
+ax.set_xticklabels(dataset_tot['City'], rotation=45, ha='right')
 
-# Adjust spacing
+# Set the y-axis label
+ax.set_ylabel('Amount')
+
+# Set the chart title
+ax.set_title('Expenses Breakdown by City')
+
+# Add a legend
+ax.legend()
+
+# Adjust the layout to prevent label cropping
 plt.tight_layout()
 
-# Display the plot
+# Show the plot
 plt.show()
-
-
