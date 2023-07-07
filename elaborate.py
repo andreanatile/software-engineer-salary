@@ -12,7 +12,7 @@ print(dataset_tot.columns)
 dataset_tot["Savings"]=dataset_tot['net_salary'] -cost_newyork*12/100*dataset_tot['Cost of Living Plus Rent Index'];
 
 # Sort the dataset by savings in descending order
-dataset_tot= dataset_tot.sort_values('Savings', ascending=False)
+dataset_tot= dataset_tot.sort_values('Savings', ascending=True)
 
 # Create the horizontal bar chart
 plt.barh(dataset_tot['City'], dataset_tot['Savings'], color='steelblue')
