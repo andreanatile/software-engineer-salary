@@ -1,25 +1,27 @@
-import pandas as pd;
-import clean_dataset as dataset;
+import pandas as pd
+import clean_dataset as dataset
 import matplotlib.pyplot as plt
 import numpy as np
 
-dataset_tot=dataset.dataset;
+dataset_tot = dataset.dataset
 
-#cost of living in New York city in dollar, 1 bedroom apartament outside city center numbeo
-cost_newyork=4000;
+# cost of living in New York city in dollar, 1 bedroom apartament outside city center numbeo
+cost_newyork = 4000
 
-#------------------------------- create new columns ------------------------------
+# ------------------------------- create new columns ------------------------------
 
-#calculate yearly cost of living per city
-dataset_tot['cost_living_per_year']=cost_newyork*dataset_tot['Cost of Living Plus Rent Index']*12/100
+# calculate yearly cost of living per city
+dataset_tot['cost_living_per_year'] = cost_newyork * \
+    dataset_tot['Cost of Living Plus Rent Index']*12/100
 
-#calculate savings per city
-dataset_tot["Savings"]=dataset_tot['net_salary'] -dataset_tot['cost_living_per_year'];
+# calculate savings per city
+dataset_tot["Savings"] = dataset_tot['net_salary'] - \
+    dataset_tot['cost_living_per_year']
 
-#calculate taxes 
-dataset_tot['Taxes']=dataset_tot['gross_salary']-dataset_tot['net_salary']
+# calculate taxes
+dataset_tot['Taxes'] = dataset_tot['gross_salary']-dataset_tot['net_salary']
 
-#-------------------------------- plot ---------------------------------------------
+# -------------------------------- plot ---------------------------------------------
 
 # Sort the dataset by savings in descending order
 dataset_tot = dataset_tot.sort_values('Savings', ascending=True)
@@ -37,7 +39,8 @@ cost_color = '#228B22'
 
 # Plotting the stacked bars
 ax.bar(x, dataset_tot['Savings'], color=savings_color, label='Savings')
-ax.bar(x, dataset_tot['Taxes'], color=taxes_color, label='Taxes', bottom=dataset_tot['Savings'])
+ax.bar(x, dataset_tot['Taxes'], color=taxes_color,
+       label='Taxes', bottom=dataset_tot['Savings'])
 ax.bar(x, dataset_tot['cost_living_per_year'], color=cost_color, label='Cost of living per year',
        bottom=dataset_tot['Savings'] + dataset_tot['Taxes'])
 
@@ -53,7 +56,8 @@ ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: format(x, ',.0f')))
 
 
 # Set the chart title
-ax.set_title('Gross Income and Savings Comparison for Software Engineers in Top Paying Cities')
+ax.set_title(
+    'Gross Income and Savings Comparison for Software Engineers in Top Paying Cities')
 
 # Remove the background
 ax.set_facecolor('none')
