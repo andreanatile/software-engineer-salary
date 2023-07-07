@@ -21,3 +21,4 @@ dataset_Cost_Living['City'] = dataset_Cost_Living['City'].str.split(',', n=1).st
 # Merge datasets based on the 'City' column
 dataset= pd.merge(dataset_income, dataset_Cost_Living, on='City', how='inner')
 
+print(dataset['City'])
