@@ -9,7 +9,7 @@
 ;Boston;MA;160000;123000
 ;Denver;CO;158000;122000
 ;Sacramento;CA;149000;112000
-;"Washington DC";NW;148000;112000
+;"Washington";NW;148000;112000
 ;Zurich;;178000;127000
 ;London;;116000;79000
 ;Dublin;;112000;68000
@@ -22,7 +22,7 @@
 ;Munich;;85000;50000
 ;Oslo;;80000;55000
 ;Stuttgart;;79000;47000
-;Tel Aviv;;159000;102000
+;Tel Aviv-Yafo;;159000;102000
 ;Dubai;;94000;89000
 ;Singapore;;90000;73000
 ;Seoul;;83000;64000
