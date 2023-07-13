@@ -61,7 +61,7 @@ ax.set_title(
 
 # Remove the background
 ax.set_facecolor('none')
-fig.set_facecolor('none')
+fig.set_facecolor('white')
 
 # Add a legend
 ax.legend()
