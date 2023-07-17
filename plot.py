@@ -6,7 +6,7 @@ import numpy as np
 dataset_tot = dataset.dataset
 
 # cost of living in New York city in dollar, 1 bedroom apartament outside city center numbeo
-cost_newyork = 4000
+cost_newyork = 5200
 
 # ------------------------------- create new columns ------------------------------
 
